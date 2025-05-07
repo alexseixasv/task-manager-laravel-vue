@@ -1,91 +1,100 @@
-# Task Manager - Laravel 10 & Vue 3
+# 🗂️ Task Manager — Full Stack Laravel + Vue 3 + Inertia
 
-A full-stack task management application built with **Laravel 10**, **Vue 3**, **Inertia.js**, **PostgreSQL**, **Pinia**, and **Pest**.  
-This project was created as part of a technical assessment to demonstrate full-stack development skills, API design, and frontend reactivity using modern tools.
-
----
-
-## ⚙️ Stack
-
-- **Backend**: Laravel 10 (PHP 8.2+)
-- **Frontend**: Vue.js 3 with Inertia.js
-- **State Management**: Pinia 2.0
-- **Database**: PostgreSQL 15
-- **Testing**: Pest 2.0
+This is a full-stack monolithic SPA built with Laravel 10, Vue.js 3, and Inertia.js. The backend is powered by Laravel, while the frontend uses Vue.js with Vite as the build tool.
 
 ---
 
-## 🚀 Setup Instructions
+## 📦 Tech Stack
 
-1. **Clone the repository**  
-   ```bash
-   git clone https://github.com/alexseixasv/task-manager-laravel-vue.git
-   cd task-manager-laravel-vue
-   ```
-
-2. **Install PHP and JavaScript dependencies**  
-   ```bash
-   composer install
-   npm install
-   ```
-
-3. **Create and configure `.env` file**  
-   ```bash
-   cp .env.example .env
-   php artisan key:generate
-   ```
-
-   Update your `.env` with PostgreSQL settings:
-   ```env
-   DB_CONNECTION=pgsql
-   DB_HOST=127.0.0.1
-   DB_PORT=5432
-   DB_DATABASE=taskmanager
-   DB_USERNAME=your_user
-   DB_PASSWORD=your_password
-   ```
-
-4. **Run migrations and seeders**
-   ```bash
-   php artisan migrate --seed
-   ```
-
-5. **Start development servers**
-   ```bash
-   php artisan serve
-   npm run dev
-   ```
+- **Laravel 10** — backend framework
+- **Vue.js 3** — frontend reactive components
+- **Inertia.js** — client-side routing in a monolith setup
+- **Vite** — lightning-fast frontend build tool
+- **PostgreSQL 15** — relational database
+- **Pinia 2.0** — state management for Vue
+- **Pest 2.0** — testing framework
 
 ---
 
-## 📐 Architectural Notes
+## 🚀 Getting Started
 
-- **Inertia.js** is used to bridge Laravel (backend) and Vue (frontend) in a monolithic SPA architecture.
-- **Pinia** is used for state management across Vue components.
-- **Pest** is used for expressive, modern testing (unit + feature).
-- Routes and controllers follow RESTful conventions.
-- Request validation is handled via Form Requests.
+### Requirements
 
----
+- PHP >= 8.2
+- Composer
+- Node.js >= 18
+- PostgreSQL 15
 
-## ✅ Assumptions
-
-- Users are authenticated (auth scaffolding can be assumed or stubbed).
-- Tasks are basic CRUD entities with soft delete and restore.
-- Task updates could use Laravel Echo for real-time feedback (bonus).
-
----
-
-## 🧪 Running Tests
+### Setup Instructions
 
 ```bash
-php artisan test
-# or
-./vendor/bin/pest
+# Install PHP dependencies
+composer install
+
+# Install JavaScript dependencies
+npm install
+
+# Create .env file
+cp .env.example .env
+
+# Generate app key
+php artisan key:generate
+
+# Set database credentials in .env
+# Then run migrations
+php artisan migrate
+
+# Start dev servers
+npm run dev
+php artisan serve
 ```
 
 ---
 
-## 📄 License
+## 🧰 Local Development (Windows with Laragon)
 
-This project is for technical evaluation purposes only.
+If you're on Windows, you can run this project using [Laragon](https://laragon.org/), which includes PHP, Composer, Node.js, and PostgreSQL out of the box.
+
+After installing Laragon:
+
+```bash
+# Open Laragon Terminal and navigate to project folder
+cd D:\Repositorios\task-manager-laravel-vue
+
+# Run backend and frontend
+composer install
+npm install
+php artisan migrate
+php artisan serve
+npm run dev
+```
+
+---
+
+## 📁 Project Structure
+
+- `app/` – Laravel backend logic (controllers, models)
+- `routes/web.php` – Routes using Inertia + Vue
+- `resources/js/Pages` – Vue components (Inertia pages)
+- `resources/views/app.blade.php` – Root layout (Inertia)
+- `vite.config.js` – Vite + Vue config
+- `tests/` – Pest or PHPUnit tests (empty by default)
+
+---
+
+## 🧪 Testing
+
+```bash
+# Run test suite (after installing Pest)
+php artisan test
+```
+
+---
+
+## 📝 Assumptions
+
+- The project is a monolithic SPA using Laravel + Vue via Inertia.
+- PostgreSQL is used as the database.
+- The frontend is served via Vite and Vue 3 using Inertia pages.
+
+---
